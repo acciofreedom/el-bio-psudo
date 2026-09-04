@@ -1,0 +1,1 @@
+﻿name: CI\non: [push, pull_request]\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n        with:\n          node-version: '18'\n          cache: 'npm'\n      - run: npm ci\n      - run: npm run build --if-present\n      - run: npm test
